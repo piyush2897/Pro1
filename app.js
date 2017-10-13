@@ -5,7 +5,7 @@ var formidable = require('formidable');
 var fs = require('fs');
 
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/mydb";
+var url = "mongodb://localhost:27017/pro1";
 
 var port= process.env.PORT || 3000;
 app.use('/assets', express.static(__dirname + '/public'));
@@ -20,9 +20,8 @@ MongoClient.connect(url, function(err, db) {
 });
 
 /* Controllers */
-
-//var register_user =require('./controllers/register_user.js');
-var setupControllers =require('./controllers/setupControllers.js');
+var register_user =require('./Controllers/register_user.js');
+var setupControllers =require('./Controllers/Print_users.js');
 
 app.get('/',function(req,res){
 	//console.log("here");
@@ -34,7 +33,7 @@ app.get('/register',function(req,res)
 var starterTodos =[
 			{
 				username: req.query.username,
-				todo: req.query.password,
+				password: req.query.password,
 			}
 		];
 		MongoClient.connect(url,function(err,db){
@@ -48,6 +47,6 @@ var starterTodos =[
 		});
 	});	
 
-//register_user(app);
+register_user(app);
 setupControllers(app);
 app.listen(port);
