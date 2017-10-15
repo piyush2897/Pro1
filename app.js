@@ -22,31 +22,17 @@ MongoClient.connect(url, function(err, db) {
 /* Controllers */
 var register_user =require('./Controllers/register_user.js');
 var setupControllers =require('./Controllers/Print_users.js');
+var insert_another_site = require('./Controllers/insert_another_site_details.js');
+var print_sites = require('./Controllers/print_sites.js');
 
 app.get('/',function(req,res){
 	//console.log("here");
 	res.render('register');
 });
 
-app.get('/register',function(req,res)
-	{
-var starterTodos =[
-			{
-				username: req.query.username,
-				password: req.query.password,
-			}
-		];
-		MongoClient.connect(url,function(err,db){
-			if(err) throw err;
-			db.collection("main_login").insertMany(starterTodos,
-				function(err,resu){
-					if(err) throw err;
-					res.render('register');
-				});
-			db.close();
-		});
-	});	
-
+print_sites(app);	
+insert_another_site(app);
 register_user(app);
 setupControllers(app);
+
 app.listen(port);

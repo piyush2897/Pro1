@@ -9,7 +9,7 @@ app.get('/register',function(req,res)
 var starterTodos =[
 			{
 				username: req.query.username,
-				password: req.query.password,
+				todo: req.query.password,
 			}
 		];
 		mongoClient.connect(url,function(err,db){
