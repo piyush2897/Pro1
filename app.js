@@ -23,16 +23,17 @@ MongoClient.connect(url, function(err, db) {
 var register_user =require('./Controllers/register_user.js');
 var setupControllers =require('./Controllers/Print_users.js');
 var insert_another_site = require('./Controllers/insert_another_site_details.js');
-var print_sites = require('./Controllers/print_sites.js');
+var prints_sites = require('./Controllers/prints_sites.js');
+var user_details = require('./Controllers/user_details.js');
 
 app.get('/',function(req,res){
-	//console.log("here");
 	res.render('register');
 });
 
-print_sites(app);	
+prints_sites(app);	
 insert_another_site(app);
 register_user(app);
 setupControllers(app);
+user_details(app);
 
 app.listen(port);
