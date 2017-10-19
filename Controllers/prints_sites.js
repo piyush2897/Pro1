@@ -10,10 +10,11 @@ module.exports = function(app)
 			if(err) throw err;
 				var c;
 			var c=db.collection("user_sites_details").count({},function(err,count)
-			{
+			{	
 				if(err) throw err;
 					c=count;
 			});
+			var query = { username: req.query.username };
 			db.collection("user_sites_details").find({}).toArray(function(err,resu)
 				{
 					if(err) throw err;
@@ -27,6 +28,7 @@ module.exports = function(app)
 					var a;
 					a=view_screen+'</table></div></body></html>';
 					res.send(a);
+					//console.log(resu);
 				});
 
 			db.close();
@@ -34,3 +36,4 @@ module.exports = function(app)
 		
 	});
 }
+
