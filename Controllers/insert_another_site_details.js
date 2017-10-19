@@ -2,6 +2,7 @@ var mongo=require('mongodb');
 var mongoClient=mongo.MongoClient;
 var url="mongodb://localhost:27017/pro1";
 
+var encrypt = require('./Encryption_Decryption/encrypt.js');
 
 module.exports = function(app)
 {
@@ -10,7 +11,7 @@ module.exports = function(app)
 			{
 				site: req.query.site_list,
 				username: req.query.username,
-				password: req.query.password
+				password: encrypt(req.query.password)
 			}
 		];
 		mongoClient.connect(url,function(err,db){
