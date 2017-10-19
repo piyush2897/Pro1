@@ -2,7 +2,6 @@ var mongo=require('mongodb');
 var mongoClient=mongo.MongoClient;
 var url="mongodb://localhost:27017/pro1";
 
-var md5 = require('md5');
 
 module.exports = function(app)
 {
@@ -11,7 +10,7 @@ module.exports = function(app)
 			{
 				site: req.query.site_list,
 				username: req.query.username,
-				password: md5(req.query.password)
+				password: req.query.password
 			}
 		];
 		mongoClient.connect(url,function(err,db){
