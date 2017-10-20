@@ -1,7 +1,7 @@
 <html>
 	<head>
 	<title>User_details</title>
-	</head>	
+	</head>
 	<h2>USER DEATILS</h2><br>
 	<form method="get" action="http://localhost:3000/prints_sites">
 		<table>
@@ -21,12 +21,17 @@
 		  <option value="amazon">amazon</option>
 		</select></td></tr>
 		<tr><td>USERNAME</td>
-		<td><input name="username" type="text"></td></tr>
+		<td><input name="username" id="username" type="text"></td></tr>
 		<tr><td>PASSWORD</td>
 		<td><input type="password" name="password"></td></tr>
 		<tr><td>
 		<input type="submit" /></td></tr>
 		</table>
 	</form>
-	<br><br>
+	<br>
+	<form method="get" action="http://localhost:3000/fblogin">
+		<table>
+		<tr><td><input type="submit" value="FACEBOOK LOGIN"/></td></tr>
+		</table>
+	</form>
 </html>
