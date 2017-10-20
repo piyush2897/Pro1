@@ -4,12 +4,6 @@ var path = require('path');
 var formidable = require('formidable');
 var fs = require('fs');
 
-process.env.TWILIO_ACCOUNT_SID = 'AC9bd7bb940e244119f9207358564dc1fd';
-process.env.TWILIO_AUTH_TOKEN = '1be4ae20f1dc7c0ebac9c0211e15358d';
-process.env.TWILIO_PHONE_NUMBER = '7206305374';
-process.env.CELL_PHONE_NUMBER = '7206305374';
-
-
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/pro1";
 
